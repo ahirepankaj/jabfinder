@@ -22,7 +22,8 @@ function findState()
 
   xmlhttp.send();
 //alert(xmlhttp.responseText);
-    document.getElementById("div").innerHTML = xmlhttp.statusText + ":" + xmlhttp.status + "<BR><textarea rows='100' cols='100'>" + xmlhttp.responseText + "</textarea>";
+    
+    document.getElementById("div").innerHTML = "<BR><textarea rows='100' cols='100'>" + JSON.stringify(xmlhttp.responseText,null,'\t') + "</textarea>";
 }
     
     
