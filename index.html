@@ -1,6 +1,6 @@
 <script type="text/javascript" language="javascript">
 
-function send()
+function findState()
 {
     var urlvariable;
 
@@ -24,6 +24,34 @@ function send()
 //alert(xmlhttp.responseText);
     document.getElementById("div").innerHTML = xmlhttp.statusText + ":" + xmlhttp.status + "<BR><textarea rows='100' cols='100'>" + xmlhttp.responseText + "</textarea>";
 }
+    
+    
+    
+    
+    function PuneSlots()
+{
+    var urlvariable;
+
+    urlvariable = "";
+
+    var ItemJSON;
+
+    ItemJSON = '[  {    "Id": 1,    "ProductID": "1",    "Quantity": 1,  },  {    "Id": 1,    "ProductID": "2",    "Quantity": 2,  }]';
+
+    URL = "https://cdn-api.co-vin.in/api/v2/appointment/sessions/public/findByDistrict?district_id=363&date=07-05-2021" + urlvariable;  //Your URL
+
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = callbackFunction(xmlhttp);
+    xmlhttp.open("GET", URL, false);
+    xmlhttp.setRequestHeader("Content-Type", "application/json");
+  //  xmlhttp.setRequestHeader('Authorization', 'Basic ' + window.btoa('apiusername:apiuserpassword')); //in prod, you should encrypt user name and password and provide encrypted keys here instead 
+    xmlhttp.onreadystatechange = callbackFunction(xmlhttp);
+   // xmlhttp.send(ItemJSON);
+
+  xmlhttp.send();
+//alert(xmlhttp.responseText);
+    document.getElementById("div").innerHTML = xmlhttp.statusText + ":" + xmlhttp.status + "<BR><textarea rows='100' cols='100'>" + xmlhttp.responseText + "</textarea>";
+}
 
 function callbackFunction(xmlhttp) 
 {
@@ -33,7 +61,8 @@ function callbackFunction(xmlhttp)
 
 
 <html>
-<body id='bod'><button type="submit" onclick="javascript:send()">call</button>
+<body id='bod'><button type="submit" onclick="javascript:findState()">FindState</button>
+<body id='bod'><button type="submit" onclick="javascript:PuneSlots()">Slots Available in Pune</button>
 <div id='div'>
 
 </div></body>
