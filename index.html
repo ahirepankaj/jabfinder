@@ -22,6 +22,7 @@ function display() {
     xhttp.setRequestHeader("Content-type", "application/json");
     xhttp.send();
     document.write(xmlhttp.responseText);
+    document.getElementById("div").innerHTML = xmlhttp.responseText;
 }
   
  function listState()
@@ -52,6 +53,6 @@ the data you entered will be displayed in a pop-up window.
    <p> <input TYPE="BUTTON" VALUE="UserAction" onClick="UserAction();"></p>
 </form>
 awdaw
-  
+  <div id='div'>
 </body>
 </html>
